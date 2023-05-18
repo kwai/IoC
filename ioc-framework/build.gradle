@@ -1,6 +1,9 @@
 plugins {
     id 'com.android.library'
+    id 'maven-publish'
 }
+group = 'com.kwaishou.i18n'
+version = '1.0.0'
 
 android {
     namespace 'com.kuaishou.commercial.utility.ioc'
@@ -33,4 +36,18 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.kwaishou.i18n'
+                artifactId = 'ioc'
+                version = '1.0.0'
+            }
+        }
+    }
 }
