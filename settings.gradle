@@ -15,3 +15,6 @@ dependencyResolutionManagement {
 rootProject.name = "IoC"
 include ':app'
 include ':ioc-framework'
+include ':annotation'
+include ':plugin'
+include ':compiler'
